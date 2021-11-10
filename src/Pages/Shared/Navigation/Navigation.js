@@ -6,7 +6,7 @@ import logo from './logo.png'
 const Navigation = () => {
   const {user, logout} = useAuth();
     return (
-        <div className="text-gray-600 body-font" style={{backgroundColor: '#EDF2F7'}}>
+        <div className="text-gray-600 bg-indigo-50 body-font">
   <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <Link to="/" className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <img className="w-8" src={logo} alt="" />

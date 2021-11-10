@@ -26,14 +26,14 @@ const Register = () => {
 
   return (
     <div>
-      <div class="font-mono bg-gray-400">
+      <div class="font-mono">
         <div class="container mx-auto">
           <div class="flex justify-center px-6 my-12">
             <div class="w-full xl:w-3/4 lg:w-11/12 flex">
               <div
                 class="w-full reg-img h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg">
               </div>
-              <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+              <div class="w-full lg:w-7/12 p-5 rounded-lg lg:rounded-l-none">
                 <h3 class="pt-4 text-2xl text-center">Create an Account!</h3>
                 <form onSubmit={handleLoginSubmit} class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
                   <div class="mb-4 md:flex md:justify-between">

@@ -3,7 +3,12 @@ import './Features.css'
 
 const Features = () => {
     return (
-        <div className="my-5">
+        <div className="my-12">
+            <h1 className="text-5xl my-8 font-semibold">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-auto animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+</svg>
+            </h1>
             <h1 className="text-5xl my-12 text-center font-semibold">Features</h1>
             <div class="container mx-auto px-6">
             <div class="h-64 ftr-1 rounded-md overflow-hidden bg-cover bg-center" >
