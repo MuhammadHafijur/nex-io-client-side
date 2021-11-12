@@ -11,13 +11,16 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import NotFound from './Pages/NotFound/NotFound';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Cars from './Pages/Cars/Cars';
 
 function App() {
   return (
     <div>
       <AuthProvider>
       <Router>
-        <Navigation></Navigation>
+        {/* <Navigation></Navigation> */}
         <Switch>
           <Route exact path="/">
             <Home></Home>
@@ -25,17 +28,23 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
+          <PrivateRoute path="/cars">
+            <Cars></Cars>
+          </PrivateRoute>
           <Route path="/login">
             <Login></Login>
           </Route>
           <Route path="/register">
             <Register></Register>
           </Route>
+          <Route path="/dashboard">
+            <Dashboard></Dashboard>
+          </Route>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </Router>
       </AuthProvider>
       </div>
