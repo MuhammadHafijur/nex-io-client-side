@@ -148,16 +148,3 @@ const useFirebase = () => {
 
 export default useFirebase;
 
-
-
-// const registerUser = (email, password) => {
-//   setIsLoading(true);
-//   createUserWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       setAuthError('');
-//     })
-//     .catch((error) => {
-//       setAuthError(error.message);
-//     })
-//     .finally(() => setIsLoading(false));
-// };
