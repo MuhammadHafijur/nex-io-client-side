@@ -14,7 +14,7 @@ const ManageOrder = () => {
   const handleStatus = (id) => {
     console.log('hitted')
     const updateInfo = {
-      status: "approved"
+      status: "shipped"
     }
     const url = `https://dry-mountain-92011.herokuapp.com/approve/${id}`;
     fetch(url, { 

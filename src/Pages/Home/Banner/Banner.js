@@ -12,9 +12,9 @@ const Banner = () => {
 
 
                 <div class="hero-text col-span-6">
-                    <h1 class=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Don't listen to what they say, Go See</h1>
+                    <h1 class=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Premium Car Rental in New York</h1>
                     <hr class=" w-12 h-1 bg-orange-500 rounded-full mt-8" />
-                    <p class="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Your ultimate travel companion. Carries all the information you need while travelling</p>
+                    <p class="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Don't deny yourself the pleasure of driving the best premium cars from around the world here and now</p>
                     <div class="get-app flex space-x-5 mt-10 justify-center md:justify-start">
                         <button class="apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
                             <div class="logo">

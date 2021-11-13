@@ -8,7 +8,6 @@ const Cars = () => {
   const [cars] = useCars();
   return (
     <div className="">
-      <Navigation></Navigation>
       {cars.map((car) => (
         <Car car={car}></Car>
       ))}
