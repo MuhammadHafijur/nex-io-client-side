@@ -8,7 +8,7 @@ const Cars = () => {
   const [cars] = useCars();
   return (
     <div className="">
-      {cars.map((car) => (
+      {cars.slice(0, 6).map((car) => (
         <Car car={car}></Car>
       ))}
     </div>

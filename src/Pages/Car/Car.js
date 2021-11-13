@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Car = (props) => {
-  const { _id, img, name, desc } = props.car;
+  const { _id, img, name, price, desc } = props.car;
   return (
     <div className="">
       <div class="bg-gray-200 flex items-center overflow-hidden relative">
@@ -33,7 +33,7 @@ const Car = (props) => {
                 <div class="inline-block align-bottom mr-5">
                   <span class="text-2xl leading-none align-baseline">$</span>
                   <span class="font-bold text-5xl leading-none align-baseline">
-                    59000
+                    {price}
                   </span>
                   <span class="text-2xl leading-none align-baseline">.99</span>
                 </div>

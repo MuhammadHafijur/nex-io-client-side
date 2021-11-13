@@ -40,12 +40,12 @@ const Dashboard = () => {
         {admin && <div>
           <Link to={`${url}/makeAdmin`} id="home" className="menu-item font-bold" href="/">Make Admin</Link>
         <Link to={`${url}/addCars`} id="contact" className="menu-item font-bold">Add Cars</Link>
+        <Link to={`${url}/manageOrders`} id="contact" className="menu-item font-bold" href="/contact">Manage Orders</Link>
         </div>
         }
         </div>
         <Link to={`${url}/pay`} id="about" className="menu-item font-bold" href="/about">Pay</Link>
         <Link to={`${url}/myOrders`} id="contact" className="menu-item font-bold" href="/contact">My Orders</Link>
-        <Link to={`${url}/manageOrders`} id="contact" className="menu-item font-bold" href="/contact">Manage Orders</Link>
         <Link to={`${url}/addReview`} id="contact" className="menu-item font-bold" href="/contact">Add Review</Link>
         <Link to="/home" onClick={logout} id="contact" className="menu-item font-bold">Logout</Link>
       </div>
