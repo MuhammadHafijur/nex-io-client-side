@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Car = (props) => {
   const { id, img, title, desc } = props.car;
@@ -16,7 +17,7 @@ const Car = (props) => {
             <div class="w-full md:w-1/2 px-10">
               <div class="mb-10">
                 <h1 class="font-bold uppercase text-2xl mb-5">
-                  911 GT3 with Touring Package
+                  {title}
                 </h1>
                 <p class="text-sm">
                   Lorem ipsum dolor sit, amet consectetur adipisicing, elit.
@@ -40,9 +41,9 @@ const Car = (props) => {
                   <span class="text-2xl leading-none align-baseline">.99</span>
                 </div>
                 <div class="inline-block align-bottom">
-                  <button class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold">
+                  <Link to={`/purchase/${id}`} class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold">
                     <i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -14,6 +14,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Cars from './Pages/Cars/Cars';
+import Purchase from './Pages/Purchase/Purchase/Purchase';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <PrivateRoute path="/cars">
             <Cars></Cars>
+          </PrivateRoute>
+          <PrivateRoute path="/purchase/:carId">
+            <Purchase></Purchase>
           </PrivateRoute>
           <Route path="/login">
             <Login></Login>

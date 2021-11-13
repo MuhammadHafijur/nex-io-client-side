@@ -9,6 +9,8 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
+import AddCars from "../AddCars/AddCars";
+import AddReview from "../AddReview/AddReview";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import Pay from "../Pay/Pay";
@@ -32,7 +34,8 @@ const Dashboard = () => {
         <Link to={`${url}/makeAdmin`} id="home" className="menu-item font-bold" href="/">Make Admin</Link>
         <Link to={`${url}/pay`} id="about" className="menu-item font-bold" href="/about">Pay</Link>
         <Link to={`${url}/myOrders`} id="contact" className="menu-item font-bold" href="/contact">My Orders</Link>
-        <Link to={`${url}/reviews`} id="contact" className="menu-item font-bold" href="/contact">Reviews</Link>
+        <Link to={`${url}/addReview`} id="contact" className="menu-item font-bold" href="/contact">Add Review</Link>
+        <Link to={`${url}/addCars`} id="contact" className="menu-item font-bold">Add Cars</Link>
         <Link to={`${url}`} id="contact" className="menu-item font-bold" href="/contact">Logout</Link>
       </div>
 
@@ -47,6 +50,12 @@ const Dashboard = () => {
                     </Route>
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
+                    </Route>
+                    <Route path={`${path}/addCars`}>
+                        <AddCars></AddCars>
+                    </Route>
+                    <Route path={`${path}/addReview`}>
+                        <AddReview></AddReview>
                     </Route>
         </Switch>
       </div>
