@@ -1,5 +1,6 @@
 import React from 'react';
 import Cars from '../../Cars/Cars';
+import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
 import Features from '../Features/Features';
@@ -13,6 +14,7 @@ const Home = () => {
             <Features></Features>
             <Cars></Cars>
             <Reviews></Reviews>
+            <Footer></Footer>
         </div>
     );
 };

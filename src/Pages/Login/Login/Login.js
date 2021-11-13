@@ -14,15 +14,9 @@ const Login = () => {
 
   const redirect_uri = location.state?.from || "/home";
 
-  const handleGoogleLogin = (e) => {
-    signInUsingGoogle()
-    .then(result => {
-      history.push(redirect_uri);
-      setUser(result.user)
-    })
-    .catch((err) => console.log(err))
-    e.preventDefault()
-  }
+  const handleGoogleLogin = () => {
+    signInUsingGoogle(location, history)
+}
 
 
   const handleOnChange = e => {

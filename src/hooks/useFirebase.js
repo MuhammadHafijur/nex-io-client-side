@@ -3,6 +3,7 @@ import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
 import {
   getAuth,
   signInWithPopup,
+  updateProfile,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -18,20 +19,34 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState('')
 
+  const [admin, setAdmin] = useState(false)
+
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
-  const registerUser = (email, password) => {
+  const registerUser = (email, password, name, history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setAuthError('');
-      })
-      .catch((error) => {
-        setAuthError(error.message);
-      })
-      .finally(() => setIsLoading(false));
-  };
+        .then((userCredential) => {
+            setAuthError('');
+            const newUser = { email, displayName: name };
+            setUser(newUser);
+            // save user to the database
+            saveUser(email, name, 'POST');
+            // send name to firebase after creation
+            updateProfile(auth.currentUser, {
+                displayName: name
+            }).then(() => {
+            }).catch((error) => {
+            });
+            history.replace('/');
+        })
+        .catch((error) => {
+            setAuthError(error.message);
+            console.log(error);
+        })
+        .finally(() => setIsLoading(false));
+}
 
   const loginUser = (email, password, location, history) => {
     setIsLoading(true);
@@ -48,14 +63,19 @@ const useFirebase = () => {
   }
 
   // sign in using google
-  const signInUsingGoogle = () => {
+  const signInUsingGoogle = (location, history) => {
     setIsLoading(true);
-
-    return signInWithPopup(auth, googleProvider)
-    .finally(() =>
-    setIsLoading(false)
-    );
-  }
+    signInWithPopup(auth, googleProvider)
+        .then((result) => {
+            const user = result.user;
+            saveUser(user.email, user.displayName, 'PUT');
+            setAuthError('');
+            const destination = location?.state?.from || '/';
+            history.replace(destination);
+        }).catch((error) => {
+            setAuthError(error.message);
+        }).finally(() => setIsLoading(false));
+}
 
   // observer user state
   useEffect(() => {
@@ -71,6 +91,13 @@ const useFirebase = () => {
     return () => unsubscribe;
   }, []);
 
+  // admin
+  useEffect(() => {
+    fetch(`https://dry-mountain-92011.herokuapp.com/users/${user.email}`)
+    .then(res => res.json())
+    .then(data => setAdmin(data.admin))
+  }, [user.email])
+
   const logout = () => {
     setIsLoading(true);
     signOut(auth)
@@ -83,10 +110,10 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const saveUser = (email, displayName) => {
+  const saveUser = (email, displayName, method) => {
     const user = {email, displayName};
-    fetch('', {
-      method: 'POST',
+    fetch('https://dry-mountain-92011.herokuapp.com/users', {
+      method: method,
       headers: {
         'content-type': 'application/json'
       },
@@ -94,17 +121,43 @@ const useFirebase = () => {
     })
     .then()
   }
+  // const saveGoogleUser = (email, displayName) => {
+  //   const user = {email, displayName};
+  //   fetch('https://dry-mountain-92011.herokuapp.com/users', {
+  //     method: 'PUT',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify(user)
+  //   })
+  //   .then()
+  // }
 
   return {
     user,
+    admin,
     setUser,
     isLoading,
     authError,
     signInUsingGoogle,
     registerUser,
     loginUser,
-    logout,
+    logout
   }
 };
 
 export default useFirebase;
+
+
+
+// const registerUser = (email, password) => {
+//   setIsLoading(true);
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       setAuthError('');
+//     })
+//     .catch((error) => {
+//       setAuthError(error.message);
+//     })
+//     .finally(() => setIsLoading(false));
+// };

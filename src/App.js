@@ -15,6 +15,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Cars from './Pages/Cars/Cars';
 import Purchase from './Pages/Purchase/Purchase/Purchase';
+import Explore from './Pages/Explore/Explore';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/explore">
+            <Explore></Explore>
           </Route>
           <PrivateRoute path="/cars">
             <Cars></Cars>

@@ -14,7 +14,7 @@ const Navigation = () => {
     </Link>
     <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
       <Link to="/cars" className="mr-5 hover:text-gray-900">Cars</Link>
-      <a className="mr-5 hover:text-gray-900">Explore</a>
+      <Link to="/explore" className="mr-5 hover:text-gray-900">Explore</Link>
       <a className="mr-5 hover:text-gray-900">About Us</a>
       <a className="mr-5 hover:text-gray-900">Help</a>
     </nav>

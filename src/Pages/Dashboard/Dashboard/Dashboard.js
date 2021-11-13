@@ -9,17 +9,22 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import AddCars from "../AddCars/AddCars";
 import AddReview from "../AddReview/AddReview";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageOrder from "../ManageOrder/ManageOrder";
+import MyOrders from "../MyOrders/MyOrders";
 import Pay from "../Pay/Pay";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const showSettings = (e) => {
-    e.preventDefault();
-  };
+  const {admin, logout} = useAuth();
+
+  // const showSettings = (e) => {
+  //   e.preventDefault();
+  // };
 
   let { path, url } = useRouteMatch();
 
@@ -27,16 +32,22 @@ const Dashboard = () => {
     <div>
       <div class="sidebar">
       <NavLink to="/" className="text-5xl text-center text-gray-800 mb-8">NEX</NavLink>
-        <a class="active" href="#home">
+        {/* <a class="" href="#home">
           Home
-        </a>
+        </a> */}
         <Link to={`${url}`} id="home" className="menu-item font-bold" href="/">Dashboard</Link>
-        <Link to={`${url}/makeAdmin`} id="home" className="menu-item font-bold" href="/">Make Admin</Link>
+        <div>
+        {admin && <div>
+          <Link to={`${url}/makeAdmin`} id="home" className="menu-item font-bold" href="/">Make Admin</Link>
         <Link to={`${url}/addCars`} id="contact" className="menu-item font-bold">Add Cars</Link>
+        </div>
+        }
+        </div>
         <Link to={`${url}/pay`} id="about" className="menu-item font-bold" href="/about">Pay</Link>
         <Link to={`${url}/myOrders`} id="contact" className="menu-item font-bold" href="/contact">My Orders</Link>
+        <Link to={`${url}/manageOrders`} id="contact" className="menu-item font-bold" href="/contact">Manage Orders</Link>
         <Link to={`${url}/addReview`} id="contact" className="menu-item font-bold" href="/contact">Add Review</Link>
-        <Link to={`${url}`} id="contact" className="menu-item font-bold" href="/contact">Logout</Link>
+        <Link to="/home" onClick={logout} id="contact" className="menu-item font-bold">Logout</Link>
       </div>
 
       {/* <!-- Page content --> */}
@@ -53,6 +64,12 @@ const Dashboard = () => {
                     </Route>
                     <Route path={`${path}/addCars`}>
                         <AddCars></AddCars>
+                    </Route>
+                    <Route path={`${path}/myOrders`}>
+                        <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/manageOrders`}>
+                        <ManageOrder></ManageOrder>
                     </Route>
                     <Route path={`${path}/addReview`}>
                         <AddReview></AddReview>

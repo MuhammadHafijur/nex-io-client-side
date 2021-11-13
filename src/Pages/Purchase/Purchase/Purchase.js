@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
 
 const Purchase = () => {
+  const {user} = useAuth();
+
     const {carId} = useParams()
     const [car, setCar] = useState({})
 
@@ -10,22 +13,29 @@ const Purchase = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = data => {
-    //     data.userName = user.displayName;
-    //     data.email = user.email;
-    //     data.service = service;
-    //     data.status = 'pending';
+        data.userName = user.displayName;
+        data.email = user.email;
+        data.car = car;
+        data.status = 'pending';
 
-    // axios.post('https://possessed-beast-94788.herokuapp.com/order', data)
-    // .then(res => {
-    //   if(res.data.insertedId){
-    //     alert('Successfully added your tour package');
-    //     reset();
-    //   }
-    // })
+
+        fetch('https://dry-mountain-92011.herokuapp.com/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.insertedId){
+            alert('Successfully placed your order')
+          }
+        })
   };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${carId}`)
+        fetch(`https://dry-mountain-92011.herokuapp.com/cars/${carId}`)
           .then((res) => res.json())
           .then(data => setCar(data));
       }, [carId]);

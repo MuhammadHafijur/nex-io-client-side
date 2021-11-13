@@ -7,7 +7,7 @@ const AddCars = () => {
   const onSubmit = data => {
     console.log(data)
 
-    fetch('http://localhost:5000/cars', {
+    fetch('https://dry-mountain-92011.herokuapp.com/cars', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

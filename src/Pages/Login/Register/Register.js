@@ -20,7 +20,7 @@ const Register = () => {
         alert('Your password did not match');
         return;
     }
-    registerUser(loginData.email, loginData.password);
+    registerUser(loginData.email, loginData.password, loginData.name);
     e.preventDefault();
   };
 
@@ -36,35 +36,21 @@ const Register = () => {
               <div class="w-full lg:w-7/12 p-5 rounded-lg lg:rounded-l-none">
                 <h3 class="pt-4 text-2xl text-center">Create an Account!</h3>
                 <form onSubmit={handleLoginSubmit} class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-                  <div class="mb-4 md:flex md:justify-between">
-                    <div class="mb-4 md:mr-2 md:mb-0">
-                      <label
-                        class="block mb-2 text-sm font-bold text-gray-700"
-                        for="firstName"
-                      >
-                        First Name
-                      </label>
-                      <input
-                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                        id="firstName"
-                        type="text"
-                        placeholder="First Name"
-                      />
-                    </div>
-                    <div class="md:ml-2">
-                      <label
-                        class="block mb-2 text-sm font-bold text-gray-700"
-                        for="lastName"
-                      >
-                        Last Name
-                      </label>
-                      <input
-                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                        id="lastName"
-                        type="text"
-                        placeholder="Last Name"
-                      />
-                    </div>
+                <div class="mb-4">
+                    <label
+                      class="block mb-2 text-sm font-bold text-gray-700"
+                      for="email"
+                    >
+                      Full Name
+                    </label>
+                    <input
+                      class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                      id="email"
+                      type="text"
+                      name="name"
+                      onChange={handleOnChange}
+                      placeholder="Enter your name"
+                    />
                   </div>
                   <div class="mb-4">
                     <label

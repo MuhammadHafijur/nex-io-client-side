@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
+    const [success, setSuccess] = useState(false)
 
     const onSubmit = data => {
-        console.log(data)
     
-        // fetch('http://localhost:5000/reviews', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        // if (data.insertedId) {
-        // alert('Successfully added review.')
-        // } })
+        fetch('https://dry-mountain-92011.herokuapp.com/users/admin', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+        if (data.modifiedCount) {
+            reset();
+            setSuccess(true)
+        } })
     
         // axios.post('https://possessed-beast-94788.herokuapp.com/services', data)
         // .then(res => {
@@ -68,6 +69,16 @@ const MakeAdmin = () => {
   </div>
 </div>
         </form>
+        {success && 
+<div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
+    <p class="font-bold">
+        Success
+    </p>
+    <p>
+        Made Admin successfully.
+    </p>
+</div>
+}
         </div>
         </div>
     );
