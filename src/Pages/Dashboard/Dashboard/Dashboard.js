@@ -32,10 +32,10 @@ const Dashboard = () => {
         </a>
         <Link to={`${url}`} id="home" className="menu-item font-bold" href="/">Dashboard</Link>
         <Link to={`${url}/makeAdmin`} id="home" className="menu-item font-bold" href="/">Make Admin</Link>
+        <Link to={`${url}/addCars`} id="contact" className="menu-item font-bold">Add Cars</Link>
         <Link to={`${url}/pay`} id="about" className="menu-item font-bold" href="/about">Pay</Link>
         <Link to={`${url}/myOrders`} id="contact" className="menu-item font-bold" href="/contact">My Orders</Link>
         <Link to={`${url}/addReview`} id="contact" className="menu-item font-bold" href="/contact">Add Review</Link>
-        <Link to={`${url}/addCars`} id="contact" className="menu-item font-bold">Add Cars</Link>
         <Link to={`${url}`} id="contact" className="menu-item font-bold" href="/contact">Logout</Link>
       </div>
 
