@@ -9,12 +9,10 @@ import Reviews from '../Reviews/Reviews';
 const Home = () => {
     return (
         <div>
-            <Navigation></Navigation>
             <Banner></Banner>
             <Features></Features>
             <Cars></Cars>
             <Reviews></Reviews>
-            <Footer></Footer>
         </div>
     );
 };

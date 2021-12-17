@@ -16,9 +16,7 @@ const Car = (props) => {
             </div>
             <div class="w-full md:w-1/2 px-10">
               <div class="mb-10">
-                <h1 class="font-bold uppercase text-2xl mb-5">
-                  {name}
-                </h1>
+                <h1 class="font-bold uppercase text-2xl mb-5">{name}</h1>
                 <p class="text-sm">
                   {desc}...{" "}
                   <a
@@ -38,7 +36,10 @@ const Car = (props) => {
                   <span class="text-2xl leading-none align-baseline">.99</span>
                 </div>
                 <div class="inline-block align-bottom">
-                  <Link to={`/purchase/${_id}`} class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold">
+                  <Link
+                    to={`/purchase/${_id}`}
+                    class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"
+                  >
                     <i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW
                   </Link>
                 </div>

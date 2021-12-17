@@ -15,8 +15,6 @@ const Navigation = () => {
     <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
     <Link to="/cars" className="mr-5 text-lg font-semibold hover:text-gray-900">Cars</Link>
       <Link to="/explore" className="mr-5 text-lg font-semibold hover:text-gray-900">Explore</Link>
-      {/* <a class="mr-5 hover:text-gray-900">Third Link</a>
-      <a class="mr-5 hover:text-gray-900">Fourth Link</a> */}
     </nav>
     {user?.email ?
     <div className="">
