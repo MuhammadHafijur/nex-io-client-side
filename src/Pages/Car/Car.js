@@ -5,7 +5,7 @@ const Car = (props) => {
   const { _id, img, name, price, desc } = props.car;
   return (
     <div className="">
-      <div class="bg-gray-200 flex items-center overflow-hidden relative">
+      <div class="bg-gray-100 flex items-center overflow-hidden relative">
         <div class="w-full my-6 max-w-6xl rounded bg-white hover:shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
           <div class="md:flex items-center -mx-10">
             <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">

@@ -48,7 +48,7 @@ const Register = () => {
                       id="email"
                       type="text"
                       name="name"
-                      onChange={handleOnChange}
+                      onBlur={handleOnChange}
                       placeholder="Enter your name"
                     />
                   </div>
@@ -64,7 +64,7 @@ const Register = () => {
                       id="email"
                       type="email"
                       name="email"
-                      onChange={handleOnChange}
+                      onBlur={handleOnChange}
                       placeholder="Email"
                     />
                   </div>
@@ -80,7 +80,7 @@ const Register = () => {
                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="password"
                         name="password"
-                        onChange={handleOnChange}
+                        onBlur={handleOnChange}
                         type="password"
                         placeholder="Enter your password"
                       />

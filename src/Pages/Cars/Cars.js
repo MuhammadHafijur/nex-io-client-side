@@ -7,10 +7,15 @@ import Navigation from "../Shared/Navigation/Navigation";
 const Cars = () => {
   const [cars] = useCars();
   return (
-    <div className="">
-      {cars.slice(0, 6).map((car) => (
-        <Car car={car}></Car>
-      ))}
+    <div className="bg-gray-100">
+      {/* <Navigation></Navigation> */}
+      <h1 className="w-3/4 mx-auto text-4xl font-semibold text-center rounded my-12">Cars</h1>
+      <div className="">
+        {cars.slice(0, 6).map((car) => (
+          <Car car={car}></Car>
+        ))}
+      </div>
+      <Footer></Footer>
     </div>
   );
 };
