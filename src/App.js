@@ -22,7 +22,7 @@ function App() {
     <div>
       <AuthProvider>
       <Router>
-        {/* <Navigation></Navigation> */}
+        <Navigation></Navigation>
         <Switch>
           <Route exact path="/">
             <Home></Home>

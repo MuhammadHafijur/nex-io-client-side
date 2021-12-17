@@ -8,7 +8,6 @@ const Cars = () => {
   const [cars] = useCars();
   return (
     <div className="bg-gray-100">
-      {/* <Navigation></Navigation> */}
       <h1 className="w-3/4 mx-auto text-4xl font-semibold text-center rounded my-12">Cars</h1>
       <div className="">
         {cars.slice(0, 6).map((car) => (
